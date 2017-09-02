@@ -240,8 +240,8 @@ fingerprint_device_t* BiometricsFingerprint::openHal() {
 
     if (kVersion != device->version) {
         // enforce version on new devices because of HIDL@2.1 translation layer
-        // ALOGE("Wrong fp version. Expected %d, got %d", kVersion, device->version);
-        // return nullptr;
+        ALOGE("Wrong fp version. Expected %d, got %d", kVersion, device->version);
+        return nullptr;
     }
 
     fingerprint_device_t* fp_device =
